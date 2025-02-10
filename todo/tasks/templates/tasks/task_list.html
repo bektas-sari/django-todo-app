@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görev Listesi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .task-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .fade-out {
+            opacity: 0 !important;
+            transform: scale(0.95);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .highlight {
+            animation: flash 0.5s ease-in-out;
+        }
+        @keyframes flash {
+            0% { background-color: #d4edda; }
+            50% { background-color: #ffffff; }
+            100% { background-color: #d4edda; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">✅ Görev Listesi</h2>
+
+        <!-- Görev Ekleme Formu -->
+        <form method="POST" class="d-flex mb-3" id="taskForm">
+            {% csrf_token %}
+            <input type="text" name="title" id="taskInput" class="form-control me-2" placeholder="Yeni görev ekleyin" required>
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </form>
+
+        <!-- Görev Listesi -->
+        <ul class="list-group" id="taskList">
+            {% for task in tasks %}
+                <li class="list-group-item task-item {% if task.completed %}completed{% endif %}" data-id="{{ task.id }}">
+                    <span>{{ task.title }}</span>
+                    <div>
+                        <a href="{% url 'task_complete' task.id %}" class="btn btn-sm {% if task.completed %}btn-success{% else %}btn-warning{% endif %} complete-btn">
+                            {% if task.completed %}✔ Tamamlandı{% else %}⌛ Devam Ediyor{% endif %}
+                        </a>
+                        <a href="{% url 'task_delete' task.id %}" class="btn btn-sm btn-danger delete-btn">🗑 Sil</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-center">Henüz bir görev eklenmedi.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript Animasyonlar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Yeni eklenen görevleri animasyonla göster
+            document.querySelectorAll(".task-item").forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add("show");
+                }, index * 100);
+            });
+
+            // Tamamlama butonu animasyonu
+            document.querySelectorAll(".complete-btn").forEach(button => {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    let taskItem = this.closest(".task-item");
+                    let link = this.getAttribute("href");
+
+                    taskItem.classList.add("highlight");  // Yeşil parlama efekti
+                    setTimeout(() => {
+                        window.location.href = link;
+                    }, 300);
+                });
+            });
+
+            // Silme animasyonu
+            document.querySelectorAll(".delete-btn").forEach(button => {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    let taskItem = this.closest(".task-item");
+                    let link = this.getAttribute("href");
+
+                    taskItem.classList.add("fade-out");
+                    setTimeout(() => {
+                        window.location.href = link;
+                    }, 500);
+                });
+            });
+
+            // Yeni görev ekleme animasyonu
+            document.getElementById("taskForm").addEventListener("submit", function() {
+                let taskInput = document.getElementById("taskInput");
+                taskInput.classList.add("highlight");
+                setTimeout(() => {
+                    taskInput.classList.remove("highlight");
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
