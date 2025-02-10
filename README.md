@@ -58,5 +58,6 @@ git push origin yeni-ozellik
 
 📩 İletişim
 Bir hata bildirimi veya geliştirme öneriniz varsa, issue açabilir veya bana GitHub üzerinden ulaşabilirsiniz.
+Mail: bektas.sari@gmail.com
 
 MIT Lisansı © 2025 Bektas SARI
