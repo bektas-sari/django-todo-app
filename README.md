@@ -1,23 +1,26 @@
 # ✅ Django To-Do App
 
-Bu proje, Django kullanarak geliştirilmiş **modern ve şık bir To-Do (Görev Listesi) uygulamasıdır**. Kullanıcılar görev ekleyebilir, tamamlayabilir ve silebilir. **Bootstrap 5 ve JavaScript animasyonları** ile dinamik bir deneyim sunar.
+This project is a **modern and stylish To-Do List application** developed with Django. Users can add, complete, and delete tasks. It offers a dynamic experience with **Bootstrap 5 and JavaScript animations**.
 
-## 🚀 Özellikler
-- 🏃 **Yeni görev ekleme (fade-in animasyonlu)**
-- ✅ **Görev tamamlama (yeşil parlama efekti)**
-- ❌ **Görev silme (fade-out animasyonlu)**
-- 🎨 **Bootstrap ile modern ve mobil uyumlu tasarım**
-- 🔄 **Hafif ve hızlı, veritabanı destekli**
+## 🚀 Features
 
-## 📌 Kurulum ve Çalıştırma
+* 🏃 **Add new tasks (with fade-in animation)**
+* ✅ **Mark tasks as complete (green glow effect)**
+* ❌ **Delete tasks (with fade-out animation)**
+* 🎨 **Modern and mobile-friendly design with Bootstrap**
+* 🔄 **Lightweight and fast, database-supported**
 
-### 1️⃣ Depoyu Klonla
+## 📌 Installation and Running
+
+### 1️⃣ Clone the Repository
+
 ```
 git clone https://github.com/bektas-sari/django-todo-app.git
 cd django-todo-app
 ```
 
-### 2️⃣ Sanal Ortamı Başlat ve Gerekli Kütüphaneleri Yükle
+### 2️⃣ Create Virtual Environment and Install Dependencies
+
 ```
 python -m venv venv
 source venv/bin/activate  # Mac/Linux
@@ -25,39 +28,57 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Veritabanını Ayarla ve Sunucuyu Çalıştır
+### 3️⃣ Set Up Database and Run the Server
+
 ```
 python manage.py migrate
-python manage.py createsuperuser  # (Opsiyonel, admin paneli için)
+python manage.py createsuperuser  # (Optional, for admin panel access)
 python manage.py runserver
 ```
 
-Şimdi tarayıcıda şu adrese git: http://127.0.0.1:8000/
+Now, open your browser and go to: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-📜 Kullanılan Teknolojiler
+## 📜 Technologies Used
+
 * Python 3, Django
 * Bootstrap 5, JavaScript
 * SQLite (Django default database)
 
-🔥 Katkıda Bulunma
-1 - Fork yaparak projeyi kendi hesabınıza kopyalayın.
-2 - Yeni bir branch oluşturun
-```
-git checkout -b yeni-ozellik
-```
-3 - Değişiklikleri yapın ve commit edin:
-```
-git commit -m "Yeni özellik eklendi"
+## 🔥 Contributing
+
+1. Fork the repository to your own GitHub account.
+2. Create a new branch:
 
 ```
-4 - Değişiklikleri kendi GitHub reposunuza gönderin:
+git checkout -b new-feature
 ```
-git push origin yeni-ozellik
+
+3. Make your changes and commit them:
+
 ```
-5 - Pull Request (PR) gönderin! 🎉
+git commit -m "Added a new feature"
+```
 
-📩 İletişim
-Bir hata bildirimi veya geliştirme öneriniz varsa, issue açabilir veya bana GitHub üzerinden ulaşabilirsiniz.
-Mail: bektas.sari@gmail.com
+4. Push the changes to your GitHub repository:
 
-MIT Lisansı © 2025 Bektas SARI
+```
+git push origin new-feature
+```
+
+5. Submit a Pull Request (PR)! 🎉
+
+## 📩 Contact
+
+If you have any bug reports or development suggestions, feel free to open an issue or contact me via GitHub.
+Email: [bektas.sari@gmail.com](mailto:bektas.sari@gmail.com)
+
+## 👤 Developer
+
+**Bektas Sari**  <br>
+Email: [bektas.sari@gmail.com](mailto:bektas.sari@gmail.com)  <br>
+GitHub: [https://github.com/bektas-sari](https://github.com/bektas-sari)  <br>
+LinkedIn: [www.linkedin.com/in/bektas-sari](http://www.linkedin.com/in/bektas-sari)  <br>
+Researchgate: [https://www.researchgate.net/profile/Bektas-Sari-3](https://www.researchgate.net/profile/Bektas-Sari-3)  <br>
+Academia: [https://independent.academia.edu/bektassari](https://independent.academia.edu/bektassari)  <br>
+
+MIT License © 2025 Bektas SARI
