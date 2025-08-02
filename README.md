@@ -1,6 +1,7 @@
 # ✅ Django To-Do App
 
-This project is a **modern and stylish To-Do List application** developed with Django. Users can add, complete, and delete tasks. It offers a dynamic experience with **Bootstrap 5 and JavaScript animations**.
+This project is a **modern and stylish To-Do List application** developed with Django. 
+Users can add, complete, and delete tasks. It offers a dynamic experience with **Bootstrap 5 and JavaScript animations**.
 
 ## 🚀 Features
 
